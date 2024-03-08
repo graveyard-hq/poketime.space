@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class="absolute-center border-2 border-black rounded-lg p-3"
+  class="absolute-center border-2 border-zinc-500 rounded-lg p-3"
   style="z-index: {zIndex}"
 >
   <div class="flex justify-between items-center mb-2">
@@ -19,7 +19,7 @@
 
     <button on:click={close} class="cursor-pointer"><XMark /></button>
   </div>
-  <div class="border border-black w-full mb-4" />
+  <div class="border border-zinc-500 w-full mb-4" />
 
   <slot />
 </div>

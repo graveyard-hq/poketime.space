@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SignIn from "$lib/modals/SignIn.svelte";
+  import ContinueWith from "$lib/modals/ContinueWith.svelte";
 </script>
 
-<SignIn close={() => {}} />
+<ContinueWith close={() => {}} />

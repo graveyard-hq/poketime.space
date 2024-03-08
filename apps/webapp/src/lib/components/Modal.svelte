@@ -12,12 +12,14 @@
   style="z-index: {zIndex}"
 >
   <div class="flex justify-between items-center mb-2">
-    <div class="inline-flex">
+    <div class="inline-flex text-zinc-600">
       <PokeTime class="mr-1" />
       <p>{title}</p>
     </div>
 
-    <button on:click={close} class="cursor-pointer"><XMark /></button>
+    <button on:click={close} class="cursor-pointer">
+      <XMark class="text-zinc-600" />
+    </button>
   </div>
   <div class="border border-zinc-500 w-full mb-4" />
 

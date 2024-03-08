@@ -4,10 +4,9 @@
   import Google from "$lib/components/icons/Google.svelte";
   import Discord from "$lib/components/icons/Discord.svelte";
   import Modal from "$lib/components/Modal.svelte";
-  import Mail from "$lib/components/icons/Mail.svelte";
   import LeftArrow from "$lib/components/icons/LeftArrow.svelte";
 
-  let currentPage = "init";
+  let currentPage = "sign in";
 
   const signin = () => {
     console.log("signin();");
@@ -21,57 +20,37 @@
   export let close: (() => void) | (() => never);
 </script>
 
-{#if currentPage === "init"}
-  <Modal {zIndex} {close} title="Continue with">
-    <Button class="w-96 mb-2">
-      <Google class="mr-1" />
-      Google
-    </Button>
-    <br />
-    <Button class="w-96 mb-2">
-      <Discord class="mr-1" />
-      Discord
-    </Button>
-    <br />
-    <Button class="w-96" on:click={() => (currentPage = "e-mail")}>
-      <Mail class="mr-1" />
-      E-mail
-    </Button>
-  </Modal>
-{:else if currentPage === "e-mail"}
-  <Modal {zIndex} {close} title="Continue with e-mail">
-    <Button class="w-96 mb-2" on:click={() => (currentPage = "sign in")}>
-      Sign in
-    </Button>
-    <br />
-    <Button class="w-96 mb-2" on:click={() => (currentPage = "sign up")}>
-      Sign up
-    </Button>
-    <br />
-    <Button class="w-96" on:click={() => (currentPage = "init")}>
-      <LeftArrow class="text-white mr-2" /> Back
-    </Button>
-  </Modal>
-{:else if currentPage === "sign in"}
-  <form on:submit|preventDefault={signin}>
-    <Modal {zIndex} {close} title="Sign in with e-mail">
+{#if currentPage === "sign in"}
+  <Modal {zIndex} {close} title="Sign in">
+    <form on:submit|preventDefault={signin}>
       <div class="mb-2">
-        <Input placeholder="Email" type="email" class="w-96 mb-2" />
-        <Input placeholder="Password" type="password" class="w-96" />
+        <Input placeholder="Email" class="mb-2 w-full" />
+        <Input placeholder="Password" type="password" class="w-full" />
+      </div>
+      <Button type="submit" class="w-full">Sign in</Button>
+
+      <div class="flex items-center my-2">
+        <div class="border border-black w-full mr-2" />
+        <p>or</p>
+        <div class="border border-black w-full ml-2" />
       </div>
 
-      <div class="flex">
-        <Button class="mr-2" on:click={() => (currentPage = "e-mail")}>
-          <LeftArrow class="text-white" />
-        </Button>
-
-        <Button type="submit" class="w-full">Sign in</Button>
-      </div>
-    </Modal>
-  </form>
+      <Button class="w-full mb-2">
+        Continue with
+        <Google class="ml-1 h-5 w-5" />
+      </Button>
+      <Button class="w-full mb-2">
+        Continue with
+        <Discord class="ml-1 h-5 w-5" />
+      </Button>
+      <Button class="w-full" on:click={() => (currentPage = "sign up")}>
+        Create account
+      </Button>
+    </form>
+  </Modal>
 {:else if currentPage === "sign up"}
-  <form on:submit|preventDefault={signup}>
-    <Modal {zIndex} {close} title="Sign up with e-mail">
+  <Modal {zIndex} {close} title="Sign in">
+    <form on:submit|preventDefault={signup}>
       <div class="mb-2">
         <Input placeholder="Email" type="email" class="w-96 mb-2" />
         <Input placeholder="Username" class="w-96 mb-2" />
@@ -79,12 +58,12 @@
       </div>
 
       <div class="flex">
-        <Button class="mr-2" on:click={() => (currentPage = "e-mail")}>
+        <Button class="mr-2" on:click={() => (currentPage = "sign in")}>
           <LeftArrow class="text-white" />
         </Button>
 
         <Button type="submit" class="w-full">Sign up</Button>
       </div>
-    </Modal>
-  </form>
+    </form>
+  </Modal>
 {/if}

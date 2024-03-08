@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "target": "ES6",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
@@ -16,10 +16,6 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
+    "noFallthroughCasesInSwitch": true
+  }
 }

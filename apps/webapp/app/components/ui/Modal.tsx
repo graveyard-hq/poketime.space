@@ -1,5 +1,6 @@
-import { XMark } from "~/components/icons/XMark";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { PokeTime } from "~/components/icons/PokeTime";
+import { Divider } from "~/components/ui/Divider";
 import { useState } from "react";
 import { Theme } from "~/utils/getTheme";
 import { useTheme } from "~/hooks/useTheme";
@@ -10,6 +11,7 @@ interface Props {
   onClose: (() => void) | (() => never);
   children?: React.ReactNode;
   className?: string;
+  icon?: React.ReactNode;
 }
 
 export const Modal: React.FC<Props> = (props: Props) => {
@@ -18,26 +20,25 @@ export const Modal: React.FC<Props> = (props: Props) => {
 
   return (
     <div
-      className={`absolute-center border-2 ${theme === Theme.DARK ? "border-white" : "border-black"} rounded-lg p-3 ${props.className || ""}`}
+      className={`absolute-center ${theme === Theme.DARK ? "bg-neutral-800" : "bg-neutral-200"} rounded-lg p-3 ${props.className || ""}`}
       style={{ zIndex: props.zIndex || 5 }}
     >
       <div className="flex justify-between items-center mb-2">
         <div
           className={`inline-flex ${theme === Theme.DARK ? "text-white" : "text-black"}`}
         >
-          <PokeTime className="mr-1" />
+          {props.icon || <PokeTime className="mr-1 size-5" />}
           <p>{props.title || "Modal"}</p>
         </div>
 
         <button onClick={props.onClose} className="cursor-pointer">
-          <XMark
-            className={theme === Theme.DARK ? "text-white" : "text-black"}
+          <XMarkIcon
+            className={`size-5 ${theme === Theme.DARK ? "text-white" : "text-black"}`}
           />
         </button>
       </div>
-      <div
-        className={`border ${theme === Theme.DARK ? "border-white" : "border-black"} w-full mb-4`}
-      />
+
+      <Divider className="mb-4" />
 
       {props.children}
     </div>

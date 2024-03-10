@@ -3,7 +3,7 @@ interface Props {
 }
 
 export const Google: React.FC<Props> = ({ className }: Props) => (
-  <svg viewBox="0 0 512 512" className={`w-6 h-6 ${className || ""}`}>
+  <svg viewBox="0 0 512 512" className={className || "w-6 h-6"}>
     <g fill="none" fillRule="evenodd">
       <path
         d="M482.56 261.36c0-16.73-1.5-32.83-4.29-48.27H256v91.29h127.01c-5.47 29.5-22.1 54.49-47.09 71.23v59.21h76.27c44.63-41.09 70.37-101.59 70.37-173.46z"

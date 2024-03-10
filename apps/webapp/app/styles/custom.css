@@ -6,10 +6,6 @@
   transform: translate(-50%, -50%);
 }
 
-.h-center {
-  @apply flex justify-center;
-}
-
 .text-invert {
   color: invert(1);
   background-color: inherit;

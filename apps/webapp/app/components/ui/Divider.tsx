@@ -12,7 +12,7 @@ export const Divider: React.FC<Props> = ({ className }: Props) => {
 
   return (
     <div
-      className={`border ${theme === Theme.DARK ? "border-white" : "border-black"} w-full ${className || ""}`}
+      className={`border ${theme === Theme.LIGHT ? "border-neutral-500" : "border-[#464646]"} w-full ${className || ""}`}
     />
   );
 };

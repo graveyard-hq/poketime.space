@@ -4,7 +4,7 @@ interface Props {
 
 export const Discord: React.FC<Props> = ({ className }: Props) => (
   <svg
-    className={`w-6 h-6 ${className || ""}`}
+    className={className || "w-6 h-6"}
     viewBox="0 -28.5 256 256"
     preserveAspectRatio="xMidYMid"
   >

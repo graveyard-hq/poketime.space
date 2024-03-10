@@ -17,7 +17,7 @@ export const Button: React.FC<Props> = (props: Props) => {
     <button
       type={props.type || "button"}
       onClick={props.onClick}
-      className={`p-2 duration-150 rounded-lg shadow-lg active:shadow-none shadow-neutral-500 ${theme === Theme.DARK ? "bg-neutral-200 hover:bg-neutral-100 active:bg-neutral-300 text-black" : "bg-black hover:bg-neutral-800 active:bg-neutral-700 text-white"} ${props.className || ""}`}
+      className={`p-2 duration-150 rounded-[10px] ${theme === Theme.DARK ? "text-white bg-[#343434] border-2 border-[#383838] hover:border-[#4b4b4b]" : "text-white bg-neutral-600 hover:bg-neutral-700 border-2"} ${props.className || ""}`}
     >
       {props.children}
     </button>

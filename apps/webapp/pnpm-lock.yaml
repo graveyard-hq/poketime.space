@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  "@heroicons/react":
+    specifier: ^2.1.1
+    version: 2.1.1(react@18.2.0)
   "@remix-run/css-bundle":
     specifier: ^2.8.1
     version: 2.8.1
@@ -20,6 +23,9 @@ dependencies:
   isbot:
     specifier: ^4.1.0
     version: 4.4.0
+  lucide-react:
+    specifier: ^0.354.0
+    version: 0.354.0(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1129,6 +1135,17 @@ packages:
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     dev: true
+
+  /@heroicons/react@2.1.1(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==,
+      }
+    peerDependencies:
+      react: ">= 16"
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@humanwhocodes/config-array@0.11.14:
     resolution:
@@ -5407,6 +5424,17 @@ packages:
       }
     engines: { node: ">=12" }
     dev: true
+
+  /lucide-react@0.354.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-qI0x/hhcuHieaUUxFejesm5T/ditszQ2x1gUkqKnTMZRAOdxT2nGzbOFYrhc0wRjuA2MN1o5JCrcRPYcHH3l8A==,
+      }
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /markdown-extensions@1.1.1:
     resolution:

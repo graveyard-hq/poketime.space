@@ -11,14 +11,22 @@ datasource db {
 model User {
     id String @id
 
-    username String @unique
+    username String
     email    String
-    password String
+    password String?
+    phone    Int?
+    country  String?
 
     badges UserBadges[]
 
     secret         String
     two_fa_enabled Boolean @default(false)
+
+    // IDs
+    google_id  String?
+    discord_id String?
+    twitter_id String?
+    apple_id   String?
 
     verified Boolean @default(false)
     deleted  Boolean @default(false)
@@ -28,12 +36,83 @@ model User {
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
 
+    videos   Video[]
+    comments Comment[]
+
+    followers Follows[] @relation("following")
+    following Follows[] @relation("follower")
+
     @@unique([id, username, email])
     @@index([id, username, email])
     @@map("users")
 }
 
+model Video {
+    id            String @id
+    streamable_id String
+
+    views    Int? @default(0)
+    likes    Int? @default(0)
+    dislikes Int? @default(0)
+
+    title       String
+    description String
+    tags        String[]
+
+    comments Comment[]
+
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+
+    user_id String
+
+    user User @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+    @@unique([id, streamable_id])
+    @@index([id, user_id])
+    @@map("videos")
+}
+
+model Comment {
+    id                String  @id
+    parent_comment_id String?
+
+    likes    Int @default(0)
+    dislikes Int @default(0)
+
+    video_id String
+    user_id  String
+
+    text String
+
+    is_reply Boolean @default(false)
+
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+
+    video Video @relation(fields: [video_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+    user  User  @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+    @@unique([id])
+    @@index([id, parent_comment_id, video_id, user_id])
+    @@map("comments")
+}
+
+model Follows {
+    follower  User @relation("follower", fields: [follower_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_follows_follower")
+    following User @relation("following", fields: [following_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_follows_following")
+
+    follower_id  String
+    following_id String
+
+    @@id([follower_id, following_id])
+    @@index([follower_id, following_id])
+    @@map("follows")
+}
+
 enum UserBadges {
     premium
-    supreme
+    verified
+
+    @@map("user_badges")
 }

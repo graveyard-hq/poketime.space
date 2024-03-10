@@ -9,6 +9,7 @@ interface Props {
   title?: string;
   onClose: (() => void) | (() => never);
   children?: React.ReactNode;
+  className?: string;
 }
 
 export const Modal: React.FC<Props> = (props: Props) => {
@@ -17,7 +18,7 @@ export const Modal: React.FC<Props> = (props: Props) => {
 
   return (
     <div
-      className={`absolute-center border-2 ${theme === Theme.DARK ? "border-white" : "border-black"} rounded-lg p-3`}
+      className={`absolute-center border-2 ${theme === Theme.DARK ? "border-white" : "border-black"} rounded-lg p-3 ${props.className || ""}`}
       style={{ zIndex: props.zIndex || 5 }}
     >
       <div className="flex justify-between items-center mb-2">

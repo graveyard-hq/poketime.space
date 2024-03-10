@@ -31,8 +31,8 @@ const ContinueWith: React.FC<Props> = (props: Props) => {
       {currentPage === "sign in" && (
         <Modal zIndex={props.zIndex} onClose={props.onClose} title="Sign in">
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
+            onSubmit={(event) => {
+              event.preventDefault();
               signin();
             }}
           >
@@ -71,7 +71,12 @@ const ContinueWith: React.FC<Props> = (props: Props) => {
       )}
 
       {currentPage === "sign up" && (
-        <Modal zIndex={props.zIndex} onClose={props.onClose} title="Sign up">
+        <Modal
+          zIndex={props.zIndex}
+          onClose={props.onClose}
+          title="Sign up"
+          className="w-[30%]"
+        >
           <form
             onSubmit={(event) => {
               event.preventDefault();

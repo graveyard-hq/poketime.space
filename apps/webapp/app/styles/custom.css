@@ -1,0 +1,16 @@
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.h-center {
+  @apply flex justify-center;
+}
+
+.text-invert {
+  color: invert(1);
+  background-color: inherit;
+}

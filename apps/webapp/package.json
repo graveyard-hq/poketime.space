@@ -1,44 +1,42 @@
 {
-  "name": "@poketime/webapp",
+  "name": "webapp",
   "private": true,
+  "sideEffects": false,
+  "type": "module",
   "scripts": {
-    "dev": "vite dev --host",
-    "build": "vite build",
-    "preview": "vite preview --host",
-    "prod": "cd build && node index.js",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --check . && eslint .",
+    "build": "remix build",
+    "dev": "remix dev --manual",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "remix-serve ./build/index.js",
+    "typecheck": "tsc",
     "format": "prettier --write ."
   },
-  "devDependencies": {
-    "@sveltejs/adapter-node": "^4.0.1",
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "@types/eslint": "^8.56.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "autoprefixer": "^10.4.18",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.35.1",
-    "postcss": "^8.4.35",
-    "prettier": "^3.1.1",
-    "prettier-plugin-svelte": "^3.1.2",
-    "shadcn-svelte": "^0.8.2",
-    "svelte": "^4.2.7",
-    "svelte-check": "^3.6.0",
-    "tailwindcss": "^3.4.1",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.3"
-  },
   "dependencies": {
-    "bits-ui": "^0.19.5",
-    "clsx": "^2.1.0",
-    "svelte-radix": "^1.0.3",
-    "tailwind-merge": "^2.2.1",
-    "tailwind-variants": "^0.2.0"
+    "@remix-run/css-bundle": "^2.8.1",
+    "@remix-run/node": "^2.8.1",
+    "@remix-run/react": "^2.8.1",
+    "@remix-run/serve": "^2.8.1",
+    "isbot": "^4.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "type": "module"
+  "devDependencies": {
+    "@remix-run/dev": "^2.8.1",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.38.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

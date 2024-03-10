@@ -3,7 +3,7 @@ import { Discord } from "~/components/icons/Discord";
 import { Button } from "~/components/ui/Button";
 import { Divider } from "~/components/ui/Divider";
 import { Text } from "~/components/ui/Text";
-import { BigModal } from "~/components/ui/BigModal";
+import { XLModalLayout } from "~/layouts/modals/XLModalLayout";
 import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/outline";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Login: React.FC<Props> = (props: Props) => (
-  <BigModal
+  <XLModalLayout
     zIndex={props.zIndex}
     onClose={() => {
       localStorage.setItem("never-show-login-modal-again", "true");
@@ -36,23 +36,25 @@ const Login: React.FC<Props> = (props: Props) => (
       Continue with Discord
     </Button>
 
-    <div className="flex items-center my-10 px-2">
+    <div className="flex items-center mt-12 px-2">
       <Divider />
       <Text className="mx-2">or</Text>
       <Divider />
     </div>
 
-    <Button className="w-full mb-4 inline-flex items-center justify-center">
-      <EnvelopeIcon className="mr-2 h-5 w-5" />
-      Continue with email
-    </Button>
+    <div className="mt-4">
+      <Button className="w-full mb-4 inline-flex items-center justify-center">
+        <EnvelopeIcon className="mr-2 h-5 w-5" />
+        Continue with email
+      </Button>
 
-    <Button className="w-full mb-4 inline-flex items-center justify-center">
-      <UserIcon className="mr-2 h-5 w-5" />
-      Continue as a Guest
-    </Button>
+      <Button className="w-full mb-4 inline-flex items-center justify-center">
+        <UserIcon className="mr-2 h-5 w-5" />
+        Continue as a Guest
+      </Button>
+    </div>
 
-    <Text className="text-[12px] mt-2 mb-16">
+    <Text className="text-[12px] mt-2 mb-10">
       By continuing with an account located in{" "}
       <span className="underline font-bold">United States</span>, you agree to
       our <span className="underline font-semibold">Terms of Service</span> and
@@ -61,10 +63,10 @@ const Login: React.FC<Props> = (props: Props) => (
     </Text>
 
     <Divider />
-    <Text className="text-center mt-2.5 text-sm">
+    <Text className="text-center mt-4 text-[12px]">
       The PokeTime Company Limited
     </Text>
-  </BigModal>
+  </XLModalLayout>
 );
 
 export default Login;

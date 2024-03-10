@@ -14,7 +14,7 @@ interface Props {
   icon?: React.ReactNode;
 }
 
-export const Modal: React.FC<Props> = (props: Props) => {
+export const SmModalLayout: React.FC<Props> = (props: Props) => {
   const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
   useTheme(setTheme);
 
@@ -45,4 +45,4 @@ export const Modal: React.FC<Props> = (props: Props) => {
   );
 };
 
-export default Modal;
+export default SmModalLayout;

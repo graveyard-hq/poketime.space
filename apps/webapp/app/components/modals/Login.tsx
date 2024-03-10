@@ -20,12 +20,18 @@ const Login: React.FC<Props> = (props: Props) => (
     }}
     title="Log in to PokeTime"
   >
-    <Button className="w-full mb-4 inline-flex items-center justify-center">
+    <Button
+      secondary
+      className="w-full mb-4 inline-flex items-center justify-center"
+    >
       <Google className="mr-2 h-5 w-5" />
       Continue with Google
     </Button>
 
-    <Button className="w-full inline-flex items-center justify-center">
+    <Button
+      secondary
+      className="w-full inline-flex items-center justify-center"
+    >
       <Discord className="mr-2 h-5 w-5" />
       Continue with Discord
     </Button>

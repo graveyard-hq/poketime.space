@@ -36,7 +36,7 @@ const Login: React.FC<Props> = (props: Props) => (
       Continue with Discord
     </Button>
 
-    <div className="flex items-center mt-12 px-2">
+    <div className="flex items-center mt-8 px-2">
       <Divider />
       <Text className="mx-2">Or</Text>
       <Divider />

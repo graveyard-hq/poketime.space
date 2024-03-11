@@ -40,7 +40,7 @@ export const XLModalLayout: React.FC<Props> = (props: Props) => {
         </button>
       </div>
 
-      <div className="mb-12">
+      <div className="mb-6">
         <div className="flex justify-center">
           <PokeTime className="size-16 mb-10" />
         </div>

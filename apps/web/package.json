@@ -1,5 +1,5 @@
 {
-  "name": "webapp",
+  "name": "@poktime/web",
   "private": true,
   "sideEffects": false,
   "type": "module",
